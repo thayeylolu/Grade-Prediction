@@ -3,6 +3,3 @@ pandas
 gunicorn
 request
 numpy
-operator
-sys
-
