@@ -1,0 +1,11 @@
+flask
+pandas
+gunicorn
+request
+numpy
+python
+operator
+sys
+knn
+normal
+model
