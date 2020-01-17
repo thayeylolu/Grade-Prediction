@@ -1,0 +1,75 @@
+
+<!--The HTML CODE: main.html-->
+<!DOCTYPE html>
+
+<!--The html tag -->
+<html>
+
+<!---The head tag -->
+  <head>
+
+    <!-- The page's  title -->
+    <title>Course Grade Prediction</title>
+
+    <!-- Meta Tag-->
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- References The bootstrap css used for style the main.html -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- References The Icon in the Title bar -->
+    <link rel="icon" href=" {{ url_for('static', filename='css/arab-woman.png') }}"  type="image/x-icon">
+
+    <!-- References The font families used in the main.html -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  <!-- End of the head tag -->
+  </head>
+
+<!-- The body Tag-->
+<body> 
+        
+<div class=" card mb-3 mag" style="max-width: 1000px; margin-left: 20%;margin-top: 10%;border: none;">
+  <div class="row no-gutters">
+    <div class="col-md-4 card text-black bg-light mb-4 ">
+      <img src = 'static/img/arab-woman.png' height="100px" width="100px" style="padding-top:50px; padding-left:10px;">
+      <p style="font-family: cursive; font-size: 0.7em; padding-left: 20px; color: chocolate"><strong>Taiwo Owoseni</p></strong>
+      <div style=" font-family:monospace;padding-left: 20px; padding-right: 20px;font-size: 1em">
+        <h2><strong> <u style= "font-size: 0.5em">ABOUT THE PROJECT</u></strong></h2>
+        <p style="color: chocolate">Each field is used to predict the course grade.</p>
+        <p style="color: chocolate">Interested in the code that makes this work?</p>
+        <a href="https://github.com/thayeylolu/DSN-Staff-Promotion-Algorithm" > <button type="submit" class="btn btn-primary btn-sm">See Here!</button></a>
+      </div>
+      <div style="padding-top:30px; padding-bottom: 25px">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+          <a  href = 'https://twitter.com/thayehas'><img src = 'static/img/twitter.png' height="20px" width="20px" ></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+          <a href = 'https://github.com/thayeylolu'><img src = 'static/img/github.png'  height="20px" width="20px"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+         <a href= "mailto:thayehas@gmail.com"> <img src = 'static/img/gmai.png' height="20px" width="20px" ></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+          <a href = 'https://linkedin.com/in/taiwo-owoseni-361a45156'><img src = 'static/img/linked.png' height="20px" width="20px" ></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+          <a href = 'https://medium.com/@thayehas'> <img src = 'static/img/medium.png'  height="20px" width="20px" ></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+          
+      </div>
+    </div>        
+    <div class="col-md-8">
+      <div class="card-body card text-white bg-dark "style= 'border: none;z-index:1'>
+      <div class="card-header bg-primary mx-auto" style="width: auto"> Grade Prediction</div>
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}"method="post">
+
+          <input type="number" name="test1" step="1" min = '0' max = '20' class ="input-group mb-3 form-control" placeholder="First Test Score" required>
+          <input type="number" name="test2" step="1" min = '0' max = '20' class ="input-group mb-3 form-control" placeholder="Second Test Score" required>
+          <input type="number" name="exam" step="1" min = '0' max = '60' class ="input-group mb-3 form-control" placeholder="Exam Score" required>
+          <input type="number" name="pract_atten" step="1" min = '0' max = '10' class ="input-group mb-3 form-control" placeholder="Number of Practicals Attended" required>
+          <input type="number" name="s_lvl" step="1" min = '1' max = '3' class ="input-group mb-3 form-control" placeholder="Level of Seriousness" required>
+                                  <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+      </div>
+      </div>
+  </div>
+</div>
+<span ><h3 class="card-text text-success" style="text-align: center"> {{ prediction_text }}</h3></span>
+</body>
+</html>
